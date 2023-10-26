@@ -1,18 +1,23 @@
 from bemor import Bemor
 
 class Doctor(Bemor):
-    def __init__(self, ism, familiya, ssn, doctor_id, mutaxassisligi) -> None:
+    def __init__(self, ism, familiya, ssn, id, mutaxassisligi) -> None:
         super().__init__(ism, familiya, ssn)
-        self._doctor_id = doctor_id
+        self._id = id
         self._mutaxassisligi = mutaxassisligi
+        self._bemorlar :list[Bemor] = []
 
     @property
-    def doctor_id(self):
-        return self._doctor_id
+    def id(self):
+        return self._id
     
     @property
     def mutaxassisligi(self):
         return self._mutaxassisligi
     
-    def __str__(self):
-        return f"Shifokor Ismi:{self.ism}, Familiyasi:{self.familiya}, SSN:{self.ssn}, ID:{self.doctor_id}, Mutaxassisligi:{self.mutaxassisligi}"
+    def getpatients(self):
+        return self._bemorlar
+
+    
+    def __str__(self) -> str:
+        return super().__str__()

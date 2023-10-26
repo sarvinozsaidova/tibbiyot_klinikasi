@@ -1,13 +1,23 @@
 from clinic import Clinic
+from bemor import Bemor
+from doctor import Doctor
 
-clinic = Clinic()
+kasalxona = Clinic()
 
-clinic.addPatient('Sarvinoz', 'Saidova', 3)
-print(clinic.getPatient(1))
-print(clinic.getPatient(3))
+bemor1 = Bemor('Madina', 'Rustamova', 123432)
+kasalxona.addPatient(bemor1)
+print(kasalxona.getPatient(123434))
 
-clinic.addDoctor('Madina', 'Rustamova', 23, 12, 'kardiolog')
-clinic.addDoctor('Guljahon', 'Abdurashidova', 14, 24, 'dermatolog')
-print(clinic.getDoctor(12))
-print(clinic.getDoctor(24))
+# doctor1 = Doctor('Guljahon', "Abdurashidova", 123432, 1, "Stomatolog")
+# kasalxona.addDoctor(doctor1)
+# print(kasalxona.getDoctor(2))
 
+doctor2 = Doctor('Guljahon', "Abdurashidova", 1234321, 1, "Stomatolog")
+kasalxona.addDoctor(doctor2)
+
+kasalxona.assignPatientToDoctor(1234321, 1)
+
+patient = kasalxona.getPatient(123432)
+print(patient._ism())
+print(patient._familiya())
+print(patient._ssn())
